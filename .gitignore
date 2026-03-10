@@ -1,0 +1,21 @@
+## .NET Core
+bin/
+obj/
+*.user
+*.db
+*.db-shm
+*.db-wal
+
+## NuGet
+*.nupkg
+.nuget/
+
+## VS/Rider
+.vs/
+.idea/
+*.suo
+*.user
+
+## OS
+.DS_Store
+Thumbs.db

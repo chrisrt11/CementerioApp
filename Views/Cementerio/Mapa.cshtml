@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Mapa del Cementerio";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid p-0">
+    <div class="row g-0" style="height: calc(100vh - 112px);">
+        <!-- Panel lateral izquierdo -->
+        <div class="col-md-3 bg-light border-end overflow-auto" style="height: 100%;">
+            <div class="p-3">
+                <h5 class="fw-bold mb-3">🗺️ Filtros</h5>
+
+                <!-- Filtro por sector -->
+                <div class="mb-3">
+                    <label for="filtroSector" class="form-label fw-semibold">Sector</label>
+                    <select id="filtroSector" class="form-select form-select-sm">
+                        <option value="">Todos los sectores</option>
+                        <option value="A">Sector A</option>
+                        <option value="B">Sector B</option>
+                        <option value="C">Sector C</option>
+                    </select>
+                </div>
+
+                <!-- Filtro por estado -->
+                <div class="mb-3">
+                    <label for="filtroEstado" class="form-label fw-semibold">Estado</label>
+                    <select id="filtroEstado" class="form-select form-select-sm">
+                        <option value="">Todos los estados</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Ocupado">Ocupado</option>
+                    </select>
+                </div>
+
+                <button id="btnFiltrar" class="btn btn-primary btn-sm w-100 mb-3">
+                    🔍 Aplicar Filtros
+                </button>
+                <button id="btnLimpiar" class="btn btn-outline-secondary btn-sm w-100 mb-4">
+                    ✖ Limpiar Filtros
+                </button>
+
+                <hr />
+
+                <!-- Leyenda -->
+                <h6 class="fw-bold mb-2">Leyenda</h6>
+                <div class="d-flex align-items-center mb-1">
+                    <span class="badge-marker bg-danger me-2"></span>
+                    <span class="small">Ocupado</span>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <span class="badge-marker bg-success me-2"></span>
+                    <span class="small">Disponible</span>
+                </div>
+
+                <hr />
+
+                <!-- Panel de información del lote seleccionado -->
+                <div id="panelInfo">
+                    <h6 class="fw-bold mb-2">ℹ️ Información del Lote</h6>
+                    <div id="infoContenido" class="text-muted small">
+                        <p>Haga clic en un marcador del mapa para ver los detalles del lote.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mapa principal -->
+        <div class="col-md-9" style="height: 100%;">
+            <div id="mapa" style="height: 100%; width: 100%;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Notificación -->
+<div id="notificacion" class="notificacion" style="display:none;"></div>
+
+@section Scripts {
+    <script src="~/js/mapa-cementerio.js" asp-append-version="true"></script>
+}
